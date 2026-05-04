@@ -10,8 +10,8 @@ const Navbar = () => {
   const { user, logout, loading } = useContext(AuthContext);
 
   return (
-    <nav className="sticky top-0 z-50 w-full glass-panel border-b-0 border-t-0 border-l-0 border-r-0 !rounded-none">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="sticky top-0 z-50 w-full bg-[#0f172a] border-b border-slate-800">
+      <div className="w-full px-4 sm:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">
