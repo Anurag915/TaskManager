@@ -30,7 +30,9 @@ const createTask = async (req, res, next) => {
       assignedTo,
     });
 
-    res.status(201).json(task);
+    const populatedTask = await task.populate('assignedTo', 'name email');
+
+    res.status(201).json(populatedTask);
   } catch (error) {
     next(error);
   }
@@ -122,7 +124,8 @@ const updateTask = async (req, res, next) => {
     }
 
     await task.save();
-    res.status(200).json(task);
+    const populatedTask = await task.populate('assignedTo', 'name email');
+    res.status(200).json(populatedTask);
   } catch (error) {
     next(error);
   }

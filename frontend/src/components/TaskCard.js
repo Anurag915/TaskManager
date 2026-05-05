@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, AlertCircle, Clock, CheckCircle2 } from 'lucide-react';
+import { Calendar, AlertCircle, Clock, CheckCircle2, Users } from 'lucide-react';
 
 const TaskCard = ({ task, onStatusChange, currentUserId }) => {
   const isOverdue = task.isOverdue;
@@ -51,10 +51,15 @@ const TaskCard = ({ task, onStatusChange, currentUserId }) => {
           {task.priority} Priority
         </div>
         
-        <div className={`flex items-center ${isOverdue ? 'text-red-400' : 'text-slate-400'}`}>
+        <div className={`flex items-center ${isOverdue ? 'text-red-400' : 'text-slate-400'}`} suppressHydrationWarning>
           <Calendar className="w-4 h-4 mr-1.5" />
           {new Date(task.dueDate).toLocaleDateString()}
           {isOverdue && <span className="ml-1.5 px-1.5 py-0.5 bg-red-500/20 rounded text-red-300">Overdue</span>}
+        </div>
+
+        <div className="flex items-center text-slate-300">
+          <Users className="w-4 h-4 mr-1.5 text-indigo-400" />
+          {task.assignedTo?.name || 'Unassigned'}
         </div>
       </div>
     </div>
